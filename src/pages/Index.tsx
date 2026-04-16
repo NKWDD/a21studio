@@ -4,6 +4,7 @@ import { useLang } from "@/contexts/LangContext";
 import heroBA from "@/assets/hero-beforeafter.jpg";
 import metalBg from "@/assets/metal-bg.jpg";
 import asphaltBg from "@/assets/asphalt-bg.jpg";
+import paintBg from "@/assets/paint-bg.jpg";
 
 const Index = () => {
   const { t } = useLang();
@@ -12,23 +13,10 @@ const Index = () => {
 
   return (
     <>
-      {/* HERO — graffiti backdrop, header sits on top */}
+      {/* HERO — graffiti backdrop, header sits on top, then straight into the showcase image */}
       <section className="relative overflow-hidden graffiti-bg">
         <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/40 to-background pointer-events-none" />
         <div className="container relative pt-44 lg:pt-52 pb-12 md:pb-16">
-          <div className="text-center mb-8">
-            <div className="inline-block skew-tag bg-neon-orange px-4 py-1.5 mb-4 animate-flicker">
-              <span className="block font-block text-xs tracking-[0.3em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
-                {t.home.tagline}
-              </span>
-            </div>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl uppercase leading-[0.95] text-foreground">
-              <span className="block">{t.home.title1}</span>
-              <span className="block text-neon-orange">{t.home.title2}</span>
-            </h1>
-          </div>
-
-          {/* Big single before/after image */}
           <div className="relative max-w-6xl mx-auto">
             <div className="relative overflow-hidden border-2 border-foreground/80 shadow-card-heavy">
               <img
@@ -51,6 +39,31 @@ const Index = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* INTRO — moved-down headline + tagline + CTAs, on glossy-paint backdrop
+          that fades in from the hero (top) and out into the next section (bottom) */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${paintBg})` }}
+          aria-hidden
+        />
+        {/* Top + bottom fades into the surrounding sections */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background pointer-events-none" />
+
+        <div className="container relative py-20 md:py-28 text-center">
+          <div className="inline-block skew-tag bg-neon-orange px-4 py-1.5 mb-5 animate-flicker">
+            <span className="block font-block text-xs tracking-[0.3em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
+              {t.home.tagline}
+            </span>
+          </div>
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl uppercase leading-[0.95] text-foreground">
+            <span className="block">{t.home.title1}</span>
+            <span className="block text-neon-orange">{t.home.title2}</span>
+          </h1>
+          <p className="mt-6 text-lg text-foreground/80 max-w-2xl mx-auto">{t.home.sub}</p>
 
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <Link
