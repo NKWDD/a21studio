@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Shield, Droplets, Wrench, Lightbulb, Car } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
-import { Logo } from "@/components/Logo";
-import heroCar from "@/assets/hero-car.jpg";
-import { BeforeAfter } from "@/components/BeforeAfter";
-import before1 from "@/assets/before-1.jpg";
-import after1 from "@/assets/after-1.jpg";
+import garageBg from "@/assets/garage-bg.jpg";
+import showcaseBefore from "@/assets/showcase-before.jpg";
+import showcaseAfter from "@/assets/showcase-after.jpg";
 
 const Index = () => {
   const { t } = useLang();
@@ -13,33 +11,115 @@ const Index = () => {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* HERO — graffiti backdrop, content below the centered logo header */}
+      <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 graffiti-bg" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
-        <div className="container relative z-10 py-16 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-block skew-tag bg-neon-pink px-4 py-1.5 mb-6 animate-flicker">
-              <span className="block font-block text-xs tracking-widest text-primary-foreground" style={{ transform: "skew(8deg)" }}>{t.home.tagline}</span>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/55 to-background" />
+        <div className="container relative z-10 py-20 md:py-28 text-center">
+          <div className="inline-block skew-tag bg-neon-pink px-4 py-1.5 mb-6 animate-flicker">
+            <span className="block font-block text-xs tracking-[0.25em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
+              {t.home.tagline}
+            </span>
+          </div>
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] animate-slide-up">
+            <span className="block">{t.home.title1}</span>
+            <span className="block text-neon-pink neon-text-pink">{t.home.title2}</span>
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up">
+            {t.home.sub}
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4 justify-center animate-slide-up">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 bg-neon-pink text-primary-foreground px-8 py-4 font-block tracking-[0.2em] uppercase shadow-neon-pink hover:shadow-[0_0_50px_hsl(var(--neon-pink)/0.8)] transition-smooth"
+            >
+              {t.cta.book} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 border-2 border-neon-cyan text-neon-cyan px-8 py-4 font-block tracking-[0.2em] uppercase hover:bg-neon-cyan hover:text-background transition-smooth"
+            >
+              {t.nav.gallery}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* BEFORE / AFTER SHOWCASE — two photos on garage backdrop */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${garageBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background/95" />
+        {/* graffiti texture overlay for extra grit */}
+        <div className="absolute inset-0 graffiti-bg opacity-10 mix-blend-screen pointer-events-none" />
+
+        <div className="container relative">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="font-block text-neon-cyan tracking-[0.3em] text-sm">— {t.gallery.sub} —</p>
+            <h2 className="font-display text-4xl md:text-6xl uppercase mt-3 neon-text-pink text-foreground">
+              {t.gallery.title}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto">
+            {/* BEFORE card */}
+            <div className="group relative">
+              <div className="absolute -inset-2 bg-neon-cyan/40 blur-2xl opacity-60 group-hover:opacity-100 transition-smooth" />
+              <div className="relative overflow-hidden border-2 border-neon-cyan/80 bg-card shadow-card-heavy">
+                <img
+                  src={showcaseBefore}
+                  alt="Car before detailing"
+                  className="w-full aspect-[5/4] object-cover transition-smooth group-hover:scale-105"
+                  loading="lazy"
+                  width={1280}
+                  height={1024}
+                />
+                <div className="absolute top-4 left-4 skew-tag bg-neon-cyan px-4 py-1.5">
+                  <span className="block font-block text-sm tracking-[0.25em] text-background" style={{ transform: "skew(8deg)" }}>
+                    {t.gallery.before}
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/70 to-transparent p-5 pt-14">
+                  <p className="font-block text-xs tracking-[0.3em] text-neon-cyan">DAY 01</p>
+                  <p className="font-display text-xl uppercase mt-1">Dull · Tired · Forgotten</p>
+                </div>
+              </div>
             </div>
-            <Logo className="h-32 md:h-44 mb-6 drop-shadow-[0_0_30px_hsl(var(--neon-pink)/0.5)] animate-slide-up" />
-            <h1 className="font-display text-5xl md:text-7xl uppercase leading-[0.95] animate-slide-up">
-              <span className="block">{t.home.title1}</span>
-              <span className="block text-neon-pink neon-text-pink">{t.home.title2}</span>
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-lg animate-slide-up">{t.home.sub}</p>
-            <div className="mt-8 flex flex-wrap gap-4 animate-slide-up">
-              <Link to="/contact" className="group inline-flex items-center gap-2 bg-neon-pink text-primary-foreground px-7 py-3.5 font-block tracking-wider uppercase shadow-neon-pink hover:shadow-[0_0_50px_hsl(var(--neon-pink)/0.8)] transition-smooth">
-                {t.cta.book} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link to="/gallery" className="inline-flex items-center gap-2 border-2 border-neon-cyan text-neon-cyan px-7 py-3.5 font-block tracking-wider uppercase hover:bg-neon-cyan hover:text-background transition-smooth">
-                {t.nav.gallery}
-              </Link>
+
+            {/* AFTER card */}
+            <div className="group relative md:translate-y-8">
+              <div className="absolute -inset-2 bg-neon-pink/50 blur-2xl opacity-70 group-hover:opacity-100 transition-smooth" />
+              <div className="relative overflow-hidden border-2 border-neon-pink bg-card shadow-neon-pink">
+                <img
+                  src={showcaseAfter}
+                  alt="Car after detailing"
+                  className="w-full aspect-[5/4] object-cover transition-smooth group-hover:scale-105"
+                  loading="lazy"
+                  width={1280}
+                  height={1024}
+                />
+                <div className="absolute top-4 right-4 skew-tag bg-neon-pink px-4 py-1.5 animate-flicker">
+                  <span className="block font-block text-sm tracking-[0.25em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
+                    {t.gallery.after}
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/70 to-transparent p-5 pt-14 text-right">
+                  <p className="font-block text-xs tracking-[0.3em] text-neon-pink">DAY 02</p>
+                  <p className="font-display text-xl uppercase mt-1">Reborn · Glossed · Untouchable</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="relative animate-slide-up">
-            <div className="absolute -inset-4 bg-gradient-graffiti opacity-50 blur-2xl" />
-            <img src={heroCar} alt="Premium car detailing" className="relative rounded border-2 border-border shadow-card-heavy w-full" width={1600} height={1200} />
+
+          <div className="text-center mt-14">
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 text-neon-orange font-block tracking-[0.2em] uppercase hover:gap-4 transition-all"
+            >
+              {t.nav.gallery} <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
@@ -47,7 +127,7 @@ const Index = () => {
       {/* FEATURES */}
       <section className="container py-24">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="font-block text-neon-cyan tracking-widest text-sm">— {t.home.featuresSub} —</p>
+          <p className="font-block text-neon-cyan tracking-[0.3em] text-sm">— {t.home.featuresSub} —</p>
           <h2 className="font-display text-4xl md:text-6xl uppercase mt-3">{t.home.featuresTitle}</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,24 +145,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SAMPLE BEFORE/AFTER */}
-      <section className="bg-card border-y border-border py-24">
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="font-block text-neon-cyan tracking-widest text-sm">— {t.gallery.sub} —</p>
-            <h2 className="font-display text-4xl md:text-6xl uppercase mt-3">{t.gallery.title}</h2>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <BeforeAfter before={before1} after={after1} title="Paint Correction & Coating" />
-          </div>
-          <div className="text-center mt-10">
-            <Link to="/gallery" className="inline-flex items-center gap-2 text-neon-pink font-block tracking-wider uppercase hover:gap-4 transition-all">
-              {t.nav.gallery} <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="container py-24">
         <div className="relative overflow-hidden border-2 border-neon-pink p-12 md:p-20 text-center">
@@ -91,7 +153,10 @@ const Index = () => {
           <div className="relative">
             <h2 className="font-display text-4xl md:text-6xl uppercase">{t.home.ctaTitle}</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">{t.home.ctaSub}</p>
-            <Link to="/contact" className="mt-8 inline-flex items-center gap-2 bg-neon-pink text-primary-foreground px-8 py-4 font-block tracking-wider uppercase shadow-neon-pink hover:shadow-[0_0_50px_hsl(var(--neon-pink)/0.8)] transition-smooth">
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 bg-neon-pink text-primary-foreground px-8 py-4 font-block tracking-[0.2em] uppercase shadow-neon-pink hover:shadow-[0_0_50px_hsl(var(--neon-pink)/0.8)] transition-smooth"
+            >
               {t.cta.book} <ArrowRight size={18} />
             </Link>
           </div>
