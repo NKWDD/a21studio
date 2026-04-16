@@ -13,9 +13,11 @@ const Index = () => {
 
   return (
     <>
-      {/* HERO — one big BEFORE / AFTER showcase image */}
-      <section className="relative overflow-hidden">
-        <div className="container py-10 md:py-14">
+      {/* HERO — graffiti backdrop continues from header (header is absolute on home) */}
+      <section className="relative overflow-hidden graffiti-bg">
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background pointer-events-none" />
+        {/* Spacer so content clears the absolute header on desktop */}
+        <div className="container relative pt-44 lg:pt-52 pb-10 md:pb-14">
           <div className="text-center mb-8">
             <div className="inline-block skew-tag bg-neon-pink px-4 py-1.5 mb-4 animate-flicker">
               <span className="block font-block text-xs tracking-[0.3em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
