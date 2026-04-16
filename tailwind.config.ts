@@ -14,10 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Anton', 'Bebas Neue', 'Impact', 'sans-serif'],
-        block: ['Anton', 'Impact', 'sans-serif'],
+        display: ['Oswald', 'Barlow Condensed', 'Impact', 'sans-serif'],
+        block: ['Oswald', 'Impact', 'sans-serif'],
         script: ['Pacifico', 'cursive'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Barlow', 'system-ui', 'sans-serif'],
       },
       colors: {
         neon: {

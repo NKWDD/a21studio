@@ -27,7 +27,7 @@ export const Header = () => {
       "font-block text-sm xl:text-base tracking-[0.25em] uppercase transition-smooth relative py-2",
       isActive
         ? "text-neon-orange after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[3px] after:w-8 after:bg-neon-orange"
-        : "text-foreground/90 hover:text-foreground"
+        : "text-foreground/85 hover:text-foreground"
     );
 
   // Header is ALWAYS transparent and absolutely-positioned. Each page is
@@ -103,7 +103,7 @@ const LangSwitcher = ({ lang, setLang }: { lang: "nl" | "en"; setLang: (l: "nl" 
         onClick={() => setLang(l)}
         className={cn(
           "px-3 py-1.5 transition-smooth",
-          lang === l ? "bg-neon-pink text-primary-foreground" : "bg-transparent text-foreground/70 hover:text-foreground"
+          lang === l ? "bg-neon-orange text-primary-foreground" : "bg-transparent text-foreground/70 hover:text-foreground"
         )}
       >
         {l.toUpperCase()}

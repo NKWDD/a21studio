@@ -14,9 +14,9 @@ const Services = () => {
           {t.services.items.map((s, i) => {
             const Icon = icons[i];
             return (
-              <div key={i} className="group bg-card border border-border p-8 hover:border-neon-pink transition-smooth flex gap-5">
-                <div className="shrink-0 w-14 h-14 bg-neon-pink/10 grid place-items-center group-hover:bg-neon-pink group-hover:shadow-neon-pink transition-smooth">
-                  <Icon className="text-neon-pink group-hover:text-primary-foreground transition-smooth" size={26} />
+              <div key={i} className="group bg-card border border-border p-8 hover:border-neon-orange transition-smooth flex gap-5">
+                <div className="shrink-0 w-14 h-14 bg-neon-orange/10 grid place-items-center group-hover:bg-neon-orange transition-smooth">
+                  <Icon className="text-neon-orange group-hover:text-primary-foreground transition-smooth" size={26} />
                 </div>
                 <div>
                   <h3 className="font-block text-2xl tracking-wide uppercase mb-2">{s.t}</h3>
@@ -27,7 +27,7 @@ const Services = () => {
           })}
         </div>
         <div className="text-center mt-16">
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-neon-pink text-primary-foreground px-8 py-4 font-block tracking-wider uppercase shadow-neon-pink transition-smooth">
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-neon-orange text-primary-foreground px-8 py-4 font-block tracking-wider uppercase shadow-orange transition-smooth">
             {t.cta.quote} <ArrowRight size={18} />
           </Link>
         </div>

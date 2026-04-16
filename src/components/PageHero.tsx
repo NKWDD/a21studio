@@ -10,7 +10,7 @@ export const PageHero = ({ tag, title, sub, children }: { tag?: string; title: s
     <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
     <div className="container relative pt-44 lg:pt-52 pb-20 md:pb-24 text-center">
       {tag && (
-        <div className="inline-block skew-tag bg-neon-pink px-4 py-1 mb-6 animate-flicker">
+        <div className="inline-block skew-tag bg-neon-orange px-4 py-1 mb-6 animate-flicker">
           <span className="block font-block text-xs tracking-widest text-primary-foreground" style={{ transform: "skew(8deg)" }}>{tag}</span>
         </div>
       )}
