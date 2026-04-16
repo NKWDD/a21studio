@@ -26,7 +26,7 @@ export const Footer = () => {
           <h4 className="font-block text-lg tracking-wider mb-4 text-neon-cyan">NAVIGATIE</h4>
           <ul className="space-y-2 text-sm">
             {[
-              ["/", t.nav.home], ["/services", t.nav.services], ["/gallery", t.nav.gallery],
+              ["/", t.nav.home], ["/gallery", t.nav.gallery],
               ["/pricing", t.nav.pricing], ["/about", t.nav.about], ["/contact", t.nav.contact],
             ].map(([to, label]) => (
               <li key={to}>

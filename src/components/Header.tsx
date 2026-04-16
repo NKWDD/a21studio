@@ -11,14 +11,13 @@ export const Header = () => {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
 
+  // Services moved into Pricing page; About moved into Footer.
   const leftLinks: { to: string; label: string; end?: boolean }[] = [
     { to: "/", label: t.nav.home, end: true },
-    { to: "/services", label: t.nav.services },
     { to: "/gallery", label: t.nav.gallery },
   ];
   const rightLinks: { to: string; label: string; end?: boolean }[] = [
     { to: "/pricing", label: t.nav.pricing },
-    { to: "/about", label: t.nav.about },
     { to: "/contact", label: t.nav.contact },
   ];
   const allLinks = [...leftLinks, ...rightLinks];
@@ -31,23 +30,15 @@ export const Header = () => {
         : "text-foreground/90 hover:text-foreground"
     );
 
+  // Header is ALWAYS transparent and absolutely-positioned. Each page is
+  // responsible for providing the graffiti backdrop behind it (PageHero on
+  // inner pages, hero section on home). This keeps the look consistent.
   return (
-    <header
-      className={cn(
-        "z-50",
-        // On the homepage, render transparent so it sits ON the hero graffiti.
-        // On other routes, give it its own graffiti band so it still looks Benny's.
-        isHome ? "absolute top-0 left-0 right-0" : "relative graffiti-bg"
-      )}
-    >
-      {!isHome && (
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background/60 pointer-events-none" />
-      )}
-
+    <header className="absolute top-0 left-0 right-0 z-50">
       <div className="container relative">
-        {/* Desktop: nav LEFT | big typographic logo CENTER | nav RIGHT */}
-        <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center gap-8 py-6">
-          <nav className="flex items-center justify-end gap-8 xl:gap-10">
+        {/* Desktop: nav LEFT | big arched logo CENTER | nav RIGHT */}
+        <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center gap-10 pt-6 pb-2">
+          <nav className="flex items-center justify-end gap-10 xl:gap-12">
             {leftLinks.map((l) => (
               <NavLink key={l.to} to={l.to} end={l.end} className={linkClass}>
                 {l.label}
@@ -59,7 +50,7 @@ export const Header = () => {
             <Logo />
           </Link>
 
-          <nav className="flex items-center justify-start gap-8 xl:gap-10">
+          <nav className="flex items-center justify-start gap-10 xl:gap-12">
             {rightLinks.map((l) => (
               <NavLink key={l.to} to={l.to} className={linkClass}>
                 {l.label}
@@ -71,8 +62,8 @@ export const Header = () => {
 
         {/* Mobile bar */}
         <div className="lg:hidden flex items-center justify-between py-4">
-          <Link to="/" onClick={() => setOpen(false)}>
-            <Logo className="scale-[0.55] origin-left" />
+          <Link to="/" onClick={() => setOpen(false)} className="block">
+            <Logo className="scale-[0.5] origin-left" />
           </Link>
           <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="p-2 text-foreground">
             {open ? <X size={28} /> : <Menu size={28} />}
