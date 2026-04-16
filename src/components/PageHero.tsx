@@ -1,13 +1,17 @@
 import { ReactNode } from "react";
 
+/**
+ * Inner-page hero. Provides the graffiti backdrop the (transparent)
+ * header sits on, plus extra top padding so the centered logo + nav
+ * have room to breathe.
+ */
 export const PageHero = ({ tag, title, sub, children }: { tag?: string; title: string; sub?: string; children?: ReactNode }) => (
-  <section className="relative overflow-hidden border-b border-border">
-    <div className="absolute inset-0 graffiti-bg opacity-30" />
-    <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
-    <div className="container relative py-24 md:py-32 text-center">
+  <section className="relative overflow-hidden border-b border-border graffiti-bg">
+    <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
+    <div className="container relative pt-44 lg:pt-52 pb-20 md:pb-24 text-center">
       {tag && (
         <div className="inline-block skew-tag bg-neon-pink px-4 py-1 mb-6 animate-flicker">
-          <span className="block -skew-x-0 font-block text-xs tracking-widest text-primary-foreground" style={{ transform: "skew(8deg)" }}>{tag}</span>
+          <span className="block font-block text-xs tracking-widest text-primary-foreground" style={{ transform: "skew(8deg)" }}>{tag}</span>
         </div>
       )}
       <h1 className="font-display text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.95] animate-slide-up">

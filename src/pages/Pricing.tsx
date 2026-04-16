@@ -9,6 +9,8 @@ const Pricing = () => {
   return (
     <>
       <PageHero tag="PACKAGES" title={t.pricing.title} sub={t.pricing.sub} />
+
+      {/* Packages */}
       <section className="container py-20">
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {t.pricing.pkg.map((p, i) => {
@@ -49,6 +51,36 @@ const Pricing = () => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Services list — moved here from its own page. Simple, readable. */}
+      <section className="border-t border-border bg-card/40">
+        <div className="container py-20 max-w-5xl">
+          <div className="text-center mb-12">
+            <p className="font-block text-neon-cyan tracking-[0.3em] text-sm">— {t.services.sub} —</p>
+            <h2 className="font-display text-4xl md:text-5xl uppercase mt-2">{t.services.title}</h2>
+          </div>
+
+          <ul className="divide-y divide-border border-y border-border">
+            {t.services.items.map((s, i) => (
+              <li key={i} className="grid sm:grid-cols-[200px_1fr] gap-2 sm:gap-8 py-5">
+                <span className="font-block text-lg tracking-[0.2em] uppercase text-neon-pink">
+                  {s.t}
+                </span>
+                <span className="text-muted-foreground">{s.d}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-neon-pink text-primary-foreground px-8 py-4 font-block tracking-wider uppercase shadow-neon-pink hover:shadow-[0_0_50px_hsl(var(--neon-pink)/0.8)] transition-smooth"
+            >
+              {t.cta.quote} <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
     </>
