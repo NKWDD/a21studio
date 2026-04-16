@@ -23,56 +23,58 @@ export const Header = () => {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
-      "font-block text-sm tracking-[0.2em] uppercase transition-smooth relative py-2",
+      "font-block text-sm xl:text-base tracking-[0.25em] uppercase transition-smooth relative py-2",
       isActive
-        ? "text-neon-orange after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-neon-orange"
-        : "text-foreground/85 hover:text-foreground"
+        ? "text-neon-orange after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[3px] after:w-8 after:bg-neon-orange"
+        : "text-foreground/90 hover:text-foreground"
     );
 
   return (
-    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-lg border-b border-border">
-      {/* Graffiti texture strip across header */}
-      <div className="absolute inset-0 graffiti-bg opacity-20 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 to-background/95 pointer-events-none" />
+    <header className="sticky top-0 z-50">
+      {/* Graffiti band — like Benny's site header */}
+      <div className="relative graffiti-bg border-b-2 border-neon-pink/40">
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background/70" />
 
-      <div className="container relative">
-        {/* Desktop: 3-column grid — nav left | logo center | nav right */}
-        <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center h-28 gap-8">
-          <nav className="flex items-center justify-end gap-8">
-            {leftLinks.map((l) => (
-              <NavLink key={l.to} to={l.to} end={l.end} className={linkClass}>
-                {l.label}
-              </NavLink>
-            ))}
-          </nav>
+        <div className="container relative">
+          {/* Desktop: nav LEFT | giant centered logo (overlaps below) | nav RIGHT */}
+          <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center gap-6 min-h-[7.5rem]">
+            <nav className="flex items-center justify-end gap-8 xl:gap-10">
+              {leftLinks.map((l) => (
+                <NavLink key={l.to} to={l.to} end={l.end} className={linkClass}>
+                  {l.label}
+                </NavLink>
+              ))}
+            </nav>
 
-          <Link to="/" className="flex items-center justify-center px-2">
-            <Logo className="h-20 xl:h-24 drop-shadow-[0_0_25px_hsl(var(--neon-pink)/0.6)]" />
-          </Link>
+            <Link to="/" className="flex items-center justify-center px-2 relative z-10">
+              {/* Bigger logo, slight downward overhang for that Benny's feel */}
+              <Logo className="h-32 xl:h-40 -mb-6 drop-shadow-[0_4px_30px_hsl(var(--neon-pink)/0.55)]" />
+            </Link>
 
-          <nav className="flex items-center justify-start gap-8">
-            {rightLinks.map((l) => (
-              <NavLink key={l.to} to={l.to} className={linkClass}>
-                {l.label}
-              </NavLink>
-            ))}
-            <LangSwitcher lang={lang} setLang={setLang} />
-          </nav>
-        </div>
+            <nav className="flex items-center justify-start gap-8 xl:gap-10">
+              {rightLinks.map((l) => (
+                <NavLink key={l.to} to={l.to} className={linkClass}>
+                  {l.label}
+                </NavLink>
+              ))}
+              <LangSwitcher lang={lang} setLang={setLang} />
+            </nav>
+          </div>
 
-        {/* Mobile bar */}
-        <div className="lg:hidden flex items-center justify-between h-20">
-          <Link to="/" onClick={() => setOpen(false)}>
-            <Logo className="h-12 drop-shadow-[0_0_15px_hsl(var(--neon-pink)/0.5)]" />
-          </Link>
-          <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="p-2 text-foreground">
-            {open ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile bar */}
+          <div className="lg:hidden flex items-center justify-between h-20">
+            <Link to="/" onClick={() => setOpen(false)}>
+              <Logo className="h-14 drop-shadow-[0_0_15px_hsl(var(--neon-pink)/0.5)]" />
+            </Link>
+            <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="p-2 text-foreground">
+              {open ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {open && (
-        <div className="lg:hidden relative border-t border-border bg-background/95 backdrop-blur-lg">
+        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-lg">
           <nav className="container flex flex-col py-6 gap-4">
             {allLinks.map((l) => (
               <NavLink
