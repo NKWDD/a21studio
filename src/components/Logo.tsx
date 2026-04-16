@@ -7,37 +7,12 @@ import { cn } from "@/lib/utils";
  */
 export const Logo = ({ className = "" }: { className?: string }) => (
   <div className={cn("inline-flex flex-col items-center leading-none select-none", className)}>
-    {/* Arched 21STUDIO */}
-    <svg
-      viewBox="0 0 600 160"
-      className="w-[280px] sm:w-[340px] md:w-[420px] lg:w-[500px] h-auto overflow-visible"
-      aria-label="21STUDIO"
-    >
-      <defs>
-        {/* Upward arch — text rides on top of this curve */}
-        <path id="logo-arch" d="M 30 145 Q 300 -10 570 145" fill="none" />
-      </defs>
-      <text
-        className="fill-foreground"
-        style={{
-          fontFamily: "'Anton', Impact, sans-serif",
-          fontSize: "108px",
-          letterSpacing: "2px",
-          paintOrder: "stroke",
-          stroke: "hsl(0 0% 0% / 0.55)",
-          strokeWidth: "3px",
-        }}
-      >
-        <textPath href="#logo-arch" startOffset="50%" textAnchor="middle">
-          21STUDIO
-        </textPath>
-      </text>
-    </svg>
-
-    {/* Script "Detailing" with stars */}
-    <span className="flex items-center gap-3 -mt-2 sm:-mt-3 md:-mt-4">
+    <span className="font-block text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.02em] text-foreground drop-shadow-[0_2px_0_hsl(0_0%_0%/0.6)]">
+      21STUDIO
+    </span>
+    <span className="flex items-center gap-3 -mt-1">
       <Star />
-      <span className="font-script text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] text-foreground [text-shadow:_0_2px_0_hsl(0_0%_0%/0.55)]">
+      <span className="font-script text-2xl sm:text-3xl md:text-4xl text-foreground -mt-1 [text-shadow:_0_2px_0_hsl(0_0%_0%/0.5)]">
         Detailing
       </span>
       <Star />
