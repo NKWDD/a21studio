@@ -13,7 +13,22 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['Anton', 'Bebas Neue', 'Impact', 'sans-serif'],
+        block: ['Anton', 'Impact', 'sans-serif'],
+        script: ['Pacifico', 'cursive'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        neon: {
+          pink: "hsl(var(--neon-pink))",
+          cyan: "hsl(var(--neon-cyan))",
+          orange: "hsl(var(--neon-orange))",
+          yellow: "hsl(var(--neon-yellow))",
+        },
+        graffiti: {
+          purple: "hsl(var(--graffiti-purple))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
