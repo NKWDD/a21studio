@@ -9,12 +9,12 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
   const { t, lang, setLang } = useLang();
 
-  const leftLinks = [
+  const leftLinks: { to: string; label: string; end?: boolean }[] = [
     { to: "/", label: t.nav.home, end: true },
     { to: "/services", label: t.nav.services },
     { to: "/gallery", label: t.nav.gallery },
   ];
-  const rightLinks = [
+  const rightLinks: { to: string; label: string; end?: boolean }[] = [
     { to: "/pricing", label: t.nav.pricing },
     { to: "/about", label: t.nav.about },
     { to: "/contact", label: t.nav.contact },
