@@ -16,30 +16,30 @@ export const Footer = () => {
           </p>
           <div className="flex gap-3 mt-5">
             {[Instagram, Facebook].map((Icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 grid place-items-center border border-border rounded hover:bg-neon-pink hover:border-neon-pink transition-smooth">
+              <a key={i} href="#" className="w-10 h-10 grid place-items-center border border-border rounded hover:bg-neon-orange hover:border-neon-orange hover:text-primary-foreground transition-smooth">
                 <Icon size={18} />
               </a>
             ))}
           </div>
         </div>
         <div>
-          <h4 className="font-block text-lg tracking-wider mb-4 text-neon-cyan">NAVIGATIE</h4>
+          <h4 className="font-block text-lg tracking-wider mb-4 text-neon-orange">NAVIGATIE</h4>
           <ul className="space-y-2 text-sm">
             {[
               ["/", t.nav.home], ["/gallery", t.nav.gallery],
               ["/pricing", t.nav.pricing], ["/about", t.nav.about], ["/contact", t.nav.contact],
             ].map(([to, label]) => (
               <li key={to}>
-                <Link to={to} className="text-muted-foreground hover:text-neon-pink transition-smooth">{label}</Link>
+                <Link to={to} className="text-muted-foreground hover:text-neon-orange transition-smooth">{label}</Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h4 className="font-block text-lg tracking-wider mb-4 text-neon-cyan">CONTACT</h4>
+          <h4 className="font-block text-lg tracking-wider mb-4 text-neon-orange">CONTACT</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Phone size={14} className="text-neon-pink" />+31 (0)20 123 4567</li>
-            <li className="flex items-center gap-2"><Mail size={14} className="text-neon-pink" />hello@21studio.nl</li>
+            <li className="flex items-center gap-2"><Phone size={14} className="text-neon-orange" />+31 (0)20 123 4567</li>
+            <li className="flex items-center gap-2"><Mail size={14} className="text-neon-orange" />hello@21studio.nl</li>
             <li>{t.contact.addressVal}</li>
             <li>{t.contact.hoursVal}</li>
           </ul>

@@ -1,78 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Pacifico&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* 21Studio Detailing — Benny's GTA V inspired design system.
-   All colors HSL. Bold graffiti street energy. */
+   White + orange palette on near-black. Calm, readable, still bold. */
 
 @layer base {
   :root {
     /* Core surfaces — deep night black */
-    --background: 0 0% 6%;
+    --background: 0 0% 7%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 9%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 8%;
+    --popover: 0 0% 9%;
     --popover-foreground: 0 0% 98%;
 
-    /* Hot magenta — Benny's signature */
-    --primary: 322 95% 54%;
+    /* PRIMARY — Benny's orange */
+    --primary: 24 95% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* Cyan accent */
-    --secondary: 184 90% 50%;
-    --secondary-foreground: 0 0% 6%;
+    /* Secondary — soft warm white */
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 7%;
 
     --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 65%;
+    --muted-foreground: 0 0% 72%;
 
-    /* Orange/yellow tag accent */
-    --accent: 32 100% 56%;
-    --accent-foreground: 0 0% 6%;
+    --accent: 24 95% 55%;
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 18%;
+    --border: 0 0% 20%;
     --input: 0 0% 14%;
-    --ring: 322 95% 54%;
+    --ring: 24 95% 55%;
 
     --radius: 0.25rem;
 
-    /* Brand extras */
-    --neon-pink: 322 95% 54%;
-    --neon-cyan: 184 90% 50%;
-    --neon-orange: 22 100% 55%;
-    --neon-yellow: 48 100% 55%;
-    --graffiti-purple: 280 80% 45%;
+    /* Brand extras — kept for backdrops/glows only, not body text */
+    --neon-orange: 24 95% 55%;
+    --neon-yellow: 48 100% 60%;
+    --neon-pink: 322 80% 55%;
+    --neon-cyan: 184 70% 50%;
+    --graffiti-purple: 280 70% 50%;
 
-    --gradient-graffiti: linear-gradient(135deg, hsl(var(--neon-pink)) 0%, hsl(var(--graffiti-purple)) 50%, hsl(var(--neon-cyan)) 100%);
+    --gradient-graffiti: linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-pink)) 50%, hsl(var(--neon-cyan)) 100%);
     --gradient-sunset: linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-pink)) 100%);
-    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 6% / 0.4) 0%, hsl(0 0% 6% / 0.95) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 7% / 0.4) 0%, hsl(0 0% 7% / 0.95) 100%);
 
-    --shadow-neon-pink: 0 0 30px hsl(var(--neon-pink) / 0.6), 0 0 60px hsl(var(--neon-pink) / 0.3);
-    --shadow-neon-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.6), 0 0 60px hsl(var(--neon-cyan) / 0.3);
+    --shadow-orange: 0 0 30px hsl(var(--neon-orange) / 0.55), 0 0 60px hsl(var(--neon-orange) / 0.25);
     --shadow-card: 0 20px 50px -10px hsl(0 0% 0% / 0.8);
 
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 6%;
+    --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 322 95% 54%;
+    --sidebar-primary: 24 95% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 14%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 322 95% 54%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 24 95% 55%;
   }
 
   .dark {
-    /* Same — site is dark by default */
-    --background: 0 0% 6%;
+    --background: 0 0% 7%;
     --foreground: 0 0% 98%;
   }
 }
@@ -88,12 +85,13 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Barlow', system-ui, sans-serif;
     background-color: hsl(var(--background));
   }
 
   h1, h2, h3, h4, .font-display {
-    font-family: 'Anton', 'Bebas Neue', Impact, sans-serif;
+    font-family: 'Oswald', 'Barlow Condensed', Impact, sans-serif;
+    font-weight: 600;
     letter-spacing: 0.01em;
   }
 
@@ -102,7 +100,8 @@
   }
 
   .font-block {
-    font-family: 'Anton', Impact, sans-serif;
+    font-family: 'Oswald', Impact, sans-serif;
+    font-weight: 600;
   }
 }
 
@@ -112,12 +111,11 @@
     color: transparent;
   }
 
-  .neon-text-pink {
-    text-shadow: 0 0 10px hsl(var(--neon-pink) / 0.8), 0 0 20px hsl(var(--neon-pink) / 0.5);
-  }
-
-  .neon-text-cyan {
-    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8), 0 0 20px hsl(var(--neon-cyan) / 0.5);
+  /* Subtle warm glow for the wordmark — no harsh neon */
+  .text-glow-warm {
+    text-shadow:
+      0 1px 0 hsl(0 0% 0% / 0.6),
+      0 0 18px hsl(var(--neon-orange) / 0.35);
   }
 
   .graffiti-bg {
@@ -134,15 +132,14 @@
 @layer utilities {
   .bg-gradient-graffiti { background: var(--gradient-graffiti); }
   .bg-gradient-sunset { background: var(--gradient-sunset); }
-  .shadow-neon-pink { box-shadow: var(--shadow-neon-pink); }
-  .shadow-neon-cyan { box-shadow: var(--shadow-neon-cyan); }
+  .shadow-orange { box-shadow: var(--shadow-orange); }
   .shadow-card-heavy { box-shadow: var(--shadow-card); }
   .transition-smooth { transition: var(--transition-smooth); }
 }
 
 @keyframes flicker {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.85; }
+  50% { opacity: 0.9; }
 }
 .animate-flicker { animation: flicker 3s ease-in-out infinite; }
 
