@@ -103,7 +103,7 @@ const LangSwitcher = ({ lang, setLang }: { lang: "nl" | "en"; setLang: (l: "nl" 
         onClick={() => setLang(l)}
         className={cn(
           "px-3 py-1.5 transition-smooth",
-          lang === l ? "bg-neon-pink text-primary-foreground" : "bg-transparent text-foreground/70 hover:text-foreground"
+          lang === l ? "bg-neon-orange text-primary-foreground" : "bg-transparent text-foreground/70 hover:text-foreground"
         )}
       >
         {l.toUpperCase()}
