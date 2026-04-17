@@ -115,6 +115,47 @@ export const translations = {
           ],
         },
         {
+          name: "Tuning & Accessoires",
+          items: [
+            {
+              name: "Lip / Spoiler Montage",
+              price: "Op aanvraag",
+              desc: "Professionele montage van front lips, spoilers en aerodynamische accessoires.",
+              features: [
+                "Pasvorm controle vóór montage",
+                "Veilige bevestiging (lijm/schroef/3M tape)",
+                "Oppervlakte voorbereiding",
+                "Uitlijning en finish check",
+              ],
+              best: "Front lips, side skirts, achterspoilers",
+            },
+            {
+              name: "Accessoire Installatie",
+              price: "Op aanvraag",
+              desc: "Montage van exterieur en interieur accessoires op maat.",
+              features: [
+                "Diffusers, splitters, canards",
+                "Badges en emblemen",
+                "Custom trim onderdelen",
+                "Persoonlijk advies",
+              ],
+              best: "Tuning projecten en custom builds",
+            },
+            {
+              name: "Custom Tuning Project",
+              price: "Op aanvraag",
+              desc: "Heb je een specifiek tuning idee? Neem contact op voor een offerte op maat.",
+              features: [
+                "Persoonlijke consultatie",
+                "Onderdelen advies",
+                "Volledige montage service",
+                "Afwerking en detailing",
+              ],
+              best: "Volledige tuning builds",
+            },
+          ],
+        },
+        {
           name: "Interieur Detailing",
           items: [
             {
@@ -296,6 +337,47 @@ export const translations = {
                 "Increased gloss and depth",
                 "UV and chemical resistance",
               ],
+            },
+          ],
+        },
+        {
+          name: "Tuning & Accessories",
+          items: [
+            {
+              name: "Lip / Spoiler Mounting",
+              price: "On request",
+              desc: "Professional mounting of front lips, spoilers and aerodynamic accessories.",
+              features: [
+                "Pre-fit check before mounting",
+                "Secure fixing (adhesive / screws / 3M tape)",
+                "Surface preparation",
+                "Alignment and finish check",
+              ],
+              best: "Front lips, side skirts, rear spoilers",
+            },
+            {
+              name: "Accessory Installation",
+              price: "On request",
+              desc: "Custom mounting of exterior and interior accessories.",
+              features: [
+                "Diffusers, splitters, canards",
+                "Badges and emblems",
+                "Custom trim parts",
+                "Personal advice",
+              ],
+              best: "Tuning projects and custom builds",
+            },
+            {
+              name: "Custom Tuning Project",
+              price: "On request",
+              desc: "Got a specific tuning idea? Get in touch for a tailored quote.",
+              features: [
+                "Personal consultation",
+                "Parts advice",
+                "Full mounting service",
+                "Finishing and detailing",
+              ],
+              best: "Full tuning builds",
             },
           ],
         },
