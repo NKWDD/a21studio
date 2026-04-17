@@ -8,8 +8,8 @@ import workshopBg from "@/assets/workshop-bg.jpg";
 
 const Index = () => {
   const { t } = useLang();
-  const featured = t.services.items.slice(0, 3);
-  const icons = [Sparkles, Droplets, Shield];
+  const featured = t.services.items;
+  const icons = [Sparkles, Droplets, Shield, Sparkles, Droplets, Shield];
 
   return (
     // ONE continuous graffiti backdrop for the whole homepage.
