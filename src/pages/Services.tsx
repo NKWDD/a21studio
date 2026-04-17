@@ -1,11 +1,11 @@
-import { Sparkles, Shield, Droplets, Wrench, Lightbulb, Car, ArrowRight } from "lucide-react";
+import { Sparkles, Shield, Droplets, Wrench, Car, Settings, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageHero } from "@/components/PageHero";
 import { useLang } from "@/contexts/LangContext";
 
 const Services = () => {
   const { t } = useLang();
-  const icons = [Sparkles, Droplets, Shield, Lightbulb, Wrench, Car];
+  const icons = [Sparkles, Droplets, Shield, Wrench, Car, Settings];
   return (
     <>
       <PageHero tag="21STUDIO" title={t.services.title} sub={t.services.sub} />
