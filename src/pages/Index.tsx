@@ -15,38 +15,34 @@ const Index = () => {
     // A fixed dark overlay sits between the wallpaper and the content
     // so every section reads cleanly without breaking the visual flow.
     <div className="relative graffiti-bg">
-      {/* Dark, slightly-transparent overlay across the entire page */}
-      <div className="absolute inset-0 bg-background/85 pointer-events-none" aria-hidden />
+      {/* Soft overlay across the entire page for readability.
+          Top portion is darker so the transparent header blends into the
+          graffiti instead of meeting it on a hard horizontal line. */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          background:
+            "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.95) 12%, hsl(var(--background) / 0.78) 28%, hsl(var(--background) / 0.82) 100%)",
+        }}
+      />
 
       <div className="relative">
-        {/* HERO — header sits on top, then straight into the showcase image */}
+        {/* HERO — headline + tagline + CTAs FIRST, sitting under the header */}
         <section className="relative">
-          <div className="container pt-44 lg:pt-52 pb-12 md:pb-16">
-            <div className="max-w-6xl mx-auto">
-              <BeforeAfter
-                before={beforeImg}
-                after={afterImg}
-                title=""
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* INTRO — headline + tagline + CTAs */}
-        <section className="relative">
-          <div className="container py-16 md:py-24 text-center">
-            <div className="inline-block skew-tag bg-neon-orange px-4 py-1.5 mb-5 animate-flicker">
+          <div className="container pt-40 lg:pt-48 pb-10 md:pb-14 text-center">
+            <div className="inline-block skew-tag bg-neon-orange px-4 py-1.5 mb-6 animate-flicker">
               <span className="block font-block text-xs tracking-[0.3em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
                 {t.home.tagline}
               </span>
             </div>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl uppercase leading-[0.95] text-foreground">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] text-foreground">
               <span className="block">{t.home.title1}</span>
               <span className="block text-neon-orange">{t.home.title2}</span>
             </h1>
-            <p className="mt-6 text-lg text-foreground/80 max-w-2xl mx-auto">{t.home.sub}</p>
+            <p className="mt-6 text-base md:text-lg text-foreground/80 max-w-2xl mx-auto">{t.home.sub}</p>
 
-            <div className="mt-10 flex flex-wrap gap-4 justify-center">
+            <div className="mt-8 flex flex-wrap gap-4 justify-center">
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 bg-neon-orange text-primary-foreground px-8 py-4 font-block tracking-[0.2em] uppercase shadow-orange hover:shadow-[0_0_50px_hsl(var(--neon-orange)/0.7)] transition-smooth"
@@ -59,6 +55,15 @@ const Index = () => {
               >
                 {t.nav.gallery}
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* SHOWCASE — Before/After below the headline */}
+        <section className="relative">
+          <div className="container pb-16 md:pb-24">
+            <div className="max-w-6xl mx-auto">
+              <BeforeAfter before={beforeImg} after={afterImg} title="" />
             </div>
           </div>
         </section>
