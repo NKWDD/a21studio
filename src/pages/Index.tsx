@@ -4,6 +4,7 @@ import { useLang } from "@/contexts/LangContext";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import beforeImg from "@/assets/before-1.jpg";
 import afterImg from "@/assets/after-1.jpg";
+import workshopBg from "@/assets/workshop-bg.jpg";
 
 const Index = () => {
   const { t } = useLang();
@@ -68,10 +69,21 @@ const Index = () => {
           </div>
         </section>
 
-        {/* WHAT WE DO */}
-        <section className="relative py-20 border-y border-border/50">
-          {/* Slight extra darkening band so the cards have contrast */}
-          <div className="absolute inset-0 bg-background/50 pointer-events-none" aria-hidden />
+        {/* WHAT WE DO — own workshop backdrop, blends back into the page */}
+        <section className="relative py-24 border-y border-border/50 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${workshopBg})` }}
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            aria-hidden
+            style={{
+              background:
+                "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.55) 18%, hsl(var(--background) / 0.55) 82%, hsl(var(--background)) 100%)",
+            }}
+          />
 
           <div className="container relative">
             <div className="text-center max-w-2xl mx-auto mb-14">
@@ -85,7 +97,7 @@ const Index = () => {
                 return (
                   <div
                     key={i}
-                    className="group relative bg-card/95 backdrop-blur border border-border p-8 hover:border-neon-orange transition-smooth"
+                    className="group relative bg-card/90 backdrop-blur border border-border p-8 hover:border-neon-orange transition-smooth"
                   >
                     <Icon className="text-neon-orange mb-5" size={36} strokeWidth={1.5} />
                     <h3 className="font-block text-xl tracking-wide uppercase mb-2 text-foreground">{s.t}</h3>
@@ -101,22 +113,6 @@ const Index = () => {
                 className="inline-flex items-center gap-2 text-neon-orange font-block tracking-[0.2em] uppercase hover:gap-4 transition-all border-b-2 border-neon-orange/40 hover:border-neon-orange pb-1"
               >
                 {t.nav.services} — {t.home.seeAll} <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="relative py-24">
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center border-2 border-neon-orange p-12 md:p-16 bg-background/70 backdrop-blur-sm">
-              <h2 className="font-display text-4xl md:text-6xl uppercase text-foreground">{t.home.ctaTitle}</h2>
-              <p className="mt-4 text-lg text-foreground/75">{t.home.ctaSub}</p>
-              <Link
-                to="/contact"
-                className="mt-8 inline-flex items-center gap-2 bg-neon-orange text-primary-foreground px-8 py-4 font-block tracking-[0.2em] uppercase shadow-orange hover:shadow-[0_0_50px_hsl(var(--neon-orange)/0.7)] transition-smooth"
-              >
-                {t.cta.book} <ArrowRight size={18} />
               </Link>
             </div>
           </div>
