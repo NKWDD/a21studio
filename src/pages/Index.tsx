@@ -4,6 +4,7 @@ import { useLang } from "@/contexts/LangContext";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import beforeImg from "@/assets/before-1.jpg";
 import afterImg from "@/assets/after-1.jpg";
+import workshopBg from "@/assets/workshop-bg.jpg";
 
 const Index = () => {
   const { t } = useLang();
