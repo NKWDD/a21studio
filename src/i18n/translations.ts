@@ -36,12 +36,15 @@ export const translations = {
       bestFor: "Geschikt voor",
       includes: "Inclusief",
       benefits: "Voordelen",
+      promo: "ACTIE",
+      wasPrice: "normaal",
       important: "Belangrijke informatie",
       importantNotes: [
         "Alle services bevatten veilige wasmethodes",
         "Prijzen kunnen variëren afhankelijk van voertuiggrootte en conditie",
         "Paint correction vereist inspectie vóór boeking",
         "Keramische coating wordt alleen aangebracht na volledige paint correction",
+        "Actieprijzen zijn voor een beperkte tijd geldig",
       ],
       categories: [
         {
@@ -262,12 +265,15 @@ export const translations = {
       bestFor: "Best for",
       includes: "Includes",
       benefits: "Benefits",
+      promo: "PROMO",
+      wasPrice: "was",
       important: "Important information",
       importantNotes: [
         "All services include safe washing methods",
         "Prices may vary depending on vehicle size and condition",
         "Paint correction requires inspection before booking",
         "Ceramic coating is only applied after full paint correction",
+        "Promo prices are valid for a limited time",
       ],
       categories: [
         {
