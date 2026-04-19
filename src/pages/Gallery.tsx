@@ -1,24 +1,76 @@
+import { useRef, useState } from "react";
 import { PageHero } from "@/components/PageHero";
-import { BeforeAfter } from "@/components/BeforeAfter";
 import { useLang } from "@/contexts/LangContext";
 import galleryBg from "@/assets/gallery-bg.jpg";
-import a1 from "@/assets/after-1.jpg";
-import a2 from "@/assets/after-2.jpg";
-import a3 from "@/assets/after-3.jpg";
-import b1 from "@/assets/before-1.jpg";
-import b2 from "@/assets/before-2.jpg";
-import b3 from "@/assets/before-3.jpg";
+import video1 from "@/assets/video-1.mp4";
+import video2 from "@/assets/video-2.mp4";
+
+type Item = { src: string; title: string };
+
+const VideoCard = ({ src, title }: Item) => {
+  const { t } = useLang();
+  const ref = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = () => {
+    const v = ref.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlaying(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
+
+  return (
+    <figure className="group bg-card p-3 pb-5 border border-border shadow-card-heavy hover:border-neon-orange transition-smooth">
+      <div
+        className="relative aspect-[9/16] overflow-hidden border-2 border-foreground/80 cursor-pointer bg-black"
+        onClick={toggle}
+      >
+        <video
+          ref={ref}
+          src={src}
+          className="absolute inset-0 w-full h-full object-cover"
+          playsInline
+          loop
+          muted
+          preload="metadata"
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+        />
+        {!playing && (
+          <div className="absolute inset-0 grid place-items-center bg-background/30 transition-opacity">
+            <div className="w-16 h-16 rounded-full bg-neon-orange grid place-items-center shadow-orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden>
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        )}
+        <div className="absolute top-3 left-3 skew-tag bg-neon-orange px-3 py-1 pointer-events-none">
+          <span className="block font-block text-[10px] tracking-[0.3em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
+            {t.gallery.before} → {t.gallery.after}
+          </span>
+        </div>
+      </div>
+      <figcaption className="mt-3 px-1 flex items-center justify-between">
+        <span className="font-block text-sm tracking-[0.25em] uppercase text-foreground">{title}</span>
+        <span className="font-script text-neon-orange text-lg">21Studio</span>
+      </figcaption>
+    </figure>
+  );
+};
 
 const Gallery = () => {
   const { t } = useLang();
-  const items = [
-    { before: b1, after: a1, title: "Paint Correction" },
-    { before: b2, after: a2, title: "Interior Detail" },
-    { before: b3, after: a3, title: "Headlight Restoration" },
-    { before: b1, after: a2, title: "Exterior Wash" },
-    { before: b2, after: a3, title: "Ceramic Coating" },
-    { before: b3, after: a1, title: "Engine Bay" },
+  const items: Item[] = [
+    { src: video1, title: "Detailing Transformation" },
+    { src: video2, title: "Detailing Transformation" },
   ];
+
   return (
     <>
       <PageHero tag="SHOWROOM" title={t.gallery.title} sub={t.gallery.sub} />
@@ -32,18 +84,9 @@ const Gallery = () => {
         <div className="absolute inset-0 bg-background/80" aria-hidden />
 
         <div className="container relative">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {items.map((it, i) => (
-              <figure
-                key={i}
-                className="group bg-card p-3 pb-5 border border-border shadow-card-heavy hover:border-neon-orange transition-smooth"
-              >
-                <BeforeAfter before={it.before} after={it.after} title="" />
-                <figcaption className="mt-3 px-1 flex items-center justify-between">
-                  <span className="font-block text-sm tracking-[0.25em] uppercase text-foreground">{it.title}</span>
-                  <span className="font-script text-neon-orange text-lg">21Studio</span>
-                </figcaption>
-              </figure>
+              <VideoCard key={i} {...it} />
             ))}
           </div>
         </div>
