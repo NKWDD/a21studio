@@ -53,6 +53,7 @@ export const translations = {
             {
               name: "Stage 1 – Heavy Cut Correction",
               price: "€400",
+              oldPrice: "€500",
               desc: "Diepe paint correction ontworpen om significante defecten te verwijderen.",
               features: [
                 "Volledige exterieur wash en pre-cleaning",
@@ -67,6 +68,7 @@ export const translations = {
             {
               name: "Stage 2 – Medium Correction",
               price: "€260",
+              oldPrice: "€340",
               desc: "Gebalanceerde correctie voor verbetering van laksconditie en glans.",
               features: [
                 "Exterieur wash en decontaminatie",
@@ -80,6 +82,7 @@ export const translations = {
             {
               name: "Stage 3 – Light Polish / Finishing",
               price: "€170",
+              oldPrice: "€220",
               desc: "Enhancement polish voor maximale glans en helderheid.",
               features: [
                 "Exterieur wash",
@@ -98,6 +101,7 @@ export const translations = {
             {
               name: "Professional Ceramic Coating",
               price: "€500–€1200+",
+              oldPrice: "€650–€1500+",
               desc: "Lange-termijn paint protection met de hand aangebracht voor duurzaamheid en glans.",
               features: [
                 "Volledige exterieur wash",
@@ -164,6 +168,7 @@ export const translations = {
             {
               name: "Basic Interior Cleaning",
               price: "€70",
+              oldPrice: "€90",
               desc: "Snelle refresh voor een schoon interieur.",
               features: [
                 "Stofzuigen van stoelen, tapijten en kofferbak",
@@ -176,6 +181,7 @@ export const translations = {
             {
               name: "Deep Interior Cleaning",
               price: "€120",
+              oldPrice: "€160",
               desc: "Volledige interieur reiniging voor zwaar gebruikte voertuigen.",
               features: [
                 "Intensief stofzuigen",
@@ -189,6 +195,7 @@ export const translations = {
             {
               name: "Bekleding / Stoel Extractie",
               price: "€150",
+              oldPrice: "€195",
               desc: "Professionele stof diepe reiniging met extractie systeem.",
               features: [
                 "Wet vacuum extraction",
@@ -282,6 +289,7 @@ export const translations = {
             {
               name: "Stage 1 – Heavy Cut Correction",
               price: "€400",
+              oldPrice: "€500",
               desc: "A deep paint correction designed to remove significant defects.",
               features: [
                 "Full exterior wash and pre-cleaning",
@@ -296,6 +304,7 @@ export const translations = {
             {
               name: "Stage 2 – Medium Correction",
               price: "€260",
+              oldPrice: "€340",
               desc: "Balanced correction for improving paint condition and gloss.",
               features: [
                 "Exterior wash and decontamination",
@@ -309,6 +318,7 @@ export const translations = {
             {
               name: "Stage 3 – Light Polish / Finishing",
               price: "€170",
+              oldPrice: "€220",
               desc: "Enhancement polish for maximum gloss and clarity.",
               features: [
                 "Exterior wash",
@@ -327,6 +337,7 @@ export const translations = {
             {
               name: "Professional Ceramic Coating",
               price: "€500–€1200+",
+              oldPrice: "€650–€1500+",
               desc: "Long-lasting paint protection applied by hand for durability and gloss.",
               features: [
                 "Full exterior wash",
@@ -393,6 +404,7 @@ export const translations = {
             {
               name: "Basic Interior Cleaning",
               price: "€70",
+              oldPrice: "€90",
               desc: "Quick refresh for a clean interior.",
               features: [
                 "Vacuum of seats, carpets and trunk",
@@ -405,6 +417,7 @@ export const translations = {
             {
               name: "Deep Interior Cleaning",
               price: "€120",
+              oldPrice: "€160",
               desc: "Full interior cleaning for heavily used vehicles.",
               features: [
                 "Intensive vacuuming",
@@ -418,6 +431,7 @@ export const translations = {
             {
               name: "Upholstery / Seat Extraction",
               price: "€150",
+              oldPrice: "€195",
               desc: "Professional fabric deep cleaning using extraction system.",
               features: [
                 "Wet vacuum extraction",
