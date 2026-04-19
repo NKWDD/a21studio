@@ -26,15 +26,28 @@ const Pricing = () => {
                 {cat.items.map((item, ii) => {
                   const benefits = "benefits" in item ? item.benefits : undefined;
                   const best = "best" in item ? item.best : undefined;
+                  const oldPrice = "oldPrice" in item ? (item as { oldPrice?: string }).oldPrice : undefined;
                   return (
                     <div
                       key={ii}
-                      className="bg-card border-2 border-border hover:border-neon-orange transition-smooth p-7 flex flex-col"
+                      className="relative bg-card border-2 border-border hover:border-neon-orange transition-smooth p-7 flex flex-col"
                     >
+                      {oldPrice && (
+                        <div className="absolute -top-3 right-5 skew-tag bg-neon-orange px-3 py-1 shadow-orange">
+                          <span className="block font-block text-[10px] tracking-[0.3em] text-primary-foreground" style={{ transform: "skew(8deg)" }}>
+                            {t.pricing.promo}
+                          </span>
+                        </div>
+                      )}
                       <h3 className="font-display text-2xl uppercase text-foreground leading-tight">{item.name}</h3>
-                      <div className="mt-3 flex items-baseline gap-2">
+                      <div className="mt-3 flex items-baseline gap-2 flex-wrap">
                         <span className="text-xs text-muted-foreground tracking-widest uppercase">{t.pricing.from}</span>
                         <span className="font-display text-4xl text-neon-orange">{item.price}</span>
+                        {oldPrice && (
+                          <span className="text-base text-muted-foreground line-through decoration-neon-orange/70">
+                            {oldPrice}
+                          </span>
+                        )}
                       </div>
                       <p className="mt-3 text-sm text-foreground/80">{item.desc}</p>
 
